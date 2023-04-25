@@ -10,21 +10,21 @@ namespace primer_parcial_unit_test_procesador_matematico
     {
         private int _resultado;
 
-        public void Sumar(int primerNumero, int segundoNumero)
+        public int Sumar(int primerNumero, int segundoNumero)
         {
             this._resultado = primerNumero + segundoNumero;
-            if (this.EsNegativo())
-            {
-                this._resultado = 0;
-            }
+            return this._resultado;
         }
 
-        public void Dividir(int dividendo, int divisor)
+        public int Dividir(int dividendo, int divisor)
         {
-            this._resultado = dividendo / divisor;
-            if (this.EsNegativo())
+            if (divisor == 0)
             {
-                this._resultado = 0;
+               return this._resultado = -1;
+            }else
+            {
+                this._resultado = dividendo / divisor;
+                return this._resultado;
             }
         }
         private bool EsNegativo()
@@ -32,19 +32,19 @@ namespace primer_parcial_unit_test_procesador_matematico
             return (this._resultado < 0);
         }
 
-        public void CalcularMayor(int primerNumero, int segundoNumero)
+        public int CalcularMayor(int primerNumero, int segundoNumero)
         {
             if (primerNumero > segundoNumero)
             {
-                this._resultado = primerNumero;
+                return this._resultado = primerNumero;
             }
             else if (primerNumero < segundoNumero)
             {
-                this._resultado = segundoNumero;
+                return this._resultado = segundoNumero;
             }
             else
             {
-                this._resultado = segundoNumero;
+              return  this._resultado = segundoNumero;
             }
         }
     }
